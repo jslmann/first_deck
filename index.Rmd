@@ -2,28 +2,70 @@
 title       : First Deck Slidify Example  
 subtitle    : this should be cool
 author      : Captain Ego
-job         : working on that
+job         : self-image consultant
 logo        : fern.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+widgets     : [mathjax, quiz, interactive]            # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: [libraries/nvd3]}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
----
-```{r}
 
+---
+```{r, echo=TRUE, results='hide'}
+x <- 3
+x
 ```
 
-## Read-And-Delete
+oops `r x`
+## testing for quiz
+```{r, echo=F}
+x <- 4
+x
+```
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+oops `r x`
 
---- .class #id 
+--- 
+## Interactive Console
+`r require(googleVis)`
 
-## Slide 2
+--- &interactive
+```{r opts.label = 'interactive', results = 'asis' }
+require(googleVis)
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year')
+print(M1, tag = 'chart')
+```
+
+---
+## HEY WHERE'D YOU GO???
+
+```{r echo = F, results = 'asis'}
+require(rCharts)
+haireye = as.data.frame(HairEyeColor)
+n1 <- nPlot(Freq ~ Hair, group = 'Eye', type = 'multiBarChart',
+  data = subset(haireye, Sex == 'Male')
+)
+n1$print('chart1')
+```
+
+--- .class #id &radio
+
+## Question 2
+
+What does it all mean?
+
+1. Yes
+2. _don't know._
+3. What does <em>what</em> all mean?
+4. 10
+
+*** .hint 
+time is on your side
+
+*** .explanation 
+you should be more trusting!
 
 
 
