@@ -1,5 +1,5 @@
 ---
-title       : First Deck Slidify Example  
+title       : Hopefull this will work Example  
 subtitle    : this should be cool
 author      : Captain Ego
 job         : self-image consultant
@@ -13,6 +13,8 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 
 ---
+
+HELLO ??
 ```{r, echo=TRUE, results='hide'}
 x <- 3
 x
